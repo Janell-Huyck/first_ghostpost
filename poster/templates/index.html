@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+{% load bootstrap %}
+
+{% block title %} This is a block title on index.html {% endblock title%}
+
+{%block content%}
+
+<div class="container">
+        <ul>
+            {% for post in posts %}
+                {% include 'post_blob.html' with post=post%}
+            {% endfor %}
+        </ul>
+</div>
+{%endblock%}

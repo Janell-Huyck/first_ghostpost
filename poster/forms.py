@@ -1,7 +1,18 @@
-from django.db import models
-from django.utils import timezone
+from django import forms
 
 
+# class GhostPostForm(forms.Form):
+#     is_boast = forms.BooleanField(
+#         required=True,
+#         label="Boast or Roast?",
+#         wiedget=forms.Select(),
+#         choices=((True, "Boast"),
+#                  (False, "Roast")))
+#     title = forms.CharField(max_length=20)
+#     text = forms.CharField(max_length=280)
+
+
+"""
 class GhostPost(models.Model):
     is_boast = models.BooleanField()
     title = models.CharField(max_length=20)
@@ -10,10 +21,4 @@ class GhostPost(models.Model):
     down_votes = models.IntegerField(default=0)
     submission_time = models.DateTimeField(default=timezone.now)
     magic_string = models.CharField(max_length=6)
-
-    def __str__(self):
-        return self.title
-
-    def score(self):
-        score = self.up_votes - self.down_votes
-        return score
+"""
