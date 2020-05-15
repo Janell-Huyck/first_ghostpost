@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from datetime import datetime
 
 
 class GhostPost(models.Model):
@@ -8,7 +9,8 @@ class GhostPost(models.Model):
     text = models.CharField(max_length=280)
     up_votes = models.IntegerField(default=0)
     down_votes = models.IntegerField(default=0)
-    submission_time = models.DateTimeField(default=timezone.now)
+    submission_time = models.DateTimeField(
+        auto_now_add=True, editable=False, null=False, blank=False)
     magic_string = models.CharField(max_length=6)
 
     def __str__(self):

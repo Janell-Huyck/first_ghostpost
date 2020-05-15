@@ -1,15 +1,15 @@
 from django import forms
 
 
-# class GhostPostForm(forms.Form):
-#     is_boast = forms.BooleanField(
-#         required=True,
-#         label="Boast or Roast?",
-#         wiedget=forms.Select(),
-#         choices=((True, "Boast"),
-#                  (False, "Roast")))
-#     title = forms.CharField(max_length=20)
-#     text = forms.CharField(max_length=280)
+class GhostPostForm(forms.Form):
+    CHOICES = ((True, 'Boast'), (False, 'Roast'))
+    is_boast = forms.ChoiceField(
+        label="Boast or Roast?",
+        widget=forms.RadioSelect,
+        initial=True,
+        choices=CHOICES)
+    title = forms.CharField(max_length=20)
+    text = forms.CharField(max_length=280)
 
 
 """
