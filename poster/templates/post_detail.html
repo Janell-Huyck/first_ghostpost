@@ -8,5 +8,4 @@
     <button><a href="{% url 'detail_like_post' pk=post.pk %}">Up-Vote This</a></button>
     <button><a href="{% url 'detail_dislike_post' pk=post.pk %}">Down-Vote This</a></button>
 
-    <p> Overall score: {{post.score}}
 {% endblock %}

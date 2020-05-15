@@ -4,12 +4,17 @@ from django import forms
 class GhostPostForm(forms.Form):
     CHOICES = ((True, 'Boast'), (False, 'Roast'))
     is_boast = forms.ChoiceField(
-        label="Boast or Roast?",
+        label='Boast or Roast?',
         widget=forms.RadioSelect,
         initial=True,
         choices=CHOICES)
     title = forms.CharField(max_length=20)
     text = forms.CharField(max_length=280)
+
+
+class ToggleViewForm(forms.Form):
+    VIEW_CHOICES = (('time', 'Sort by Time'), ('score', 'Sort by Score'))
+    view = forms.ChoiceField(initial='time', choices=VIEW_CHOICES)
 
 
 """

@@ -5,6 +5,6 @@
 <button><a href="{% url 'boasts_like_post' pk=post.pk %}">Up-Vote This</a></button>
 <button><a href="{% url 'boasts_dislike_post' pk=post.pk %}">Down-Vote This</a></button>
 
-<p> Overall score: {{post.score}}
 <p> Posted at: {{post.submission_time}} </p>
+<p> Boast score: {{post.score}}
 </li>

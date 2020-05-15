@@ -3,9 +3,17 @@
 
 
 {%block content%}
-
+{% comment %} <button action="views.index.toggle_view">Toggle View</button> {% endcomment %}
+{{ current_view }}
 
 <div class="container">
+<p> What should we sort by? </p>
+
+<form method = "post">
+    {%csrf_token%}
+    {{form}}
+    <input type="submit" value="Sort!">
+</form>
         <ul>
             {% for post in posts %}
                 {% include 'post_blob.html' with post=post%}

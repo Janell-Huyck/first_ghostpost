@@ -1,13 +1,27 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from poster.forms import GhostPostForm
+from poster.forms import GhostPostForm, ToggleViewForm
 from poster.models import GhostPost
 
 
 def index(request):
+    context = {}
     posts = GhostPost.objects.all().order_by('submission_time')
-    context = {'posts': posts}
+    ranked_posts = sorted(
+        posts, key=lambda post: post.down_votes - post.up_votes)
+    form = ToggleViewForm()
+    context['form'] = form
+    context['posts'] = posts
+    if request.method == "POST":
+        form = ToggleViewForm(request.POST)
+        if form.is_valid():
+            view_choice = form.cleaned_data['view']
+            if view_choice == "time":
+                context['posts'] = posts
+            else:
+                context['posts'] = ranked_posts
+
     return render(request, 'index.html', context)
 
 
@@ -28,7 +42,22 @@ def posts_dislike_view(request, pk):
 def boasts(request):
     context = {}
     if GhostPost.objects.filter(is_boast=True):
-        context['posts'] = GhostPost.objects.filter(is_boast=True)
+        posts = GhostPost.objects.filter(
+            is_boast=True).order_by('submission_time')
+        ranked_posts = sorted(
+            posts, key=lambda post: post.down_votes - post.up_votes)
+        form = ToggleViewForm()
+        context['form'] = form
+        context['posts'] = posts
+        if request.method == "POST":
+            form = ToggleViewForm(request.POST)
+            if form.is_valid():
+                view_choice = form.cleaned_data['view']
+                if view_choice == "time":
+                    context['posts'] = posts
+                else:
+                    context['posts'] = ranked_posts
+
     else:
         context['posts'] = ""
         context['error_message'] = "Sorry no such items exist."
@@ -52,7 +81,22 @@ def boasts_dislike_view(request, pk):
 def roasts(request):
     context = {}
     if GhostPost.objects.filter(is_boast=False):
-        context['posts'] = GhostPost.objects.filter(is_boast=False)
+        posts = GhostPost.objects.filter(
+            is_boast=False).order_by('submission_time')
+        ranked_posts = sorted(
+            posts, key=lambda post: post.down_votes - post.up_votes)
+        form = ToggleViewForm()
+        context['form'] = form
+        context['posts'] = posts
+        if request.method == "POST":
+            form = ToggleViewForm(request.POST)
+            if form.is_valid():
+                view_choice = form.cleaned_data['view']
+                if view_choice == "time":
+                    context['posts'] = posts
+                else:
+                    context['posts'] = ranked_posts
+
     else:
         context['posts'] = ""
         context['error_message'] = "Sorry no such items exist."
