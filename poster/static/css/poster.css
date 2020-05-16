@@ -1,0 +1,64 @@
+body {
+    background: url('../img/house.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    background-attachment: fixed;
+}
+
+header {
+    display: flex;
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 40%;
+    height: auto;
+    background-color: black;
+    margin-bottom: -5px;
+    padding-bottom: -5px;
+}
+
+main {
+    margin-top: 100px;
+}
+
+form {
+    background-color: black;
+    width: 40%;
+    position: fixed;
+    color: white;
+    height: auto;
+    margin-top: -5px;
+    padding-bottom: 10px;
+}
+
+.post {
+    display:flex;
+    flex-direction: column;
+    background: url('../img/ghost.png');
+    background-color: white;
+    color: orangered;
+    height: 400px;
+    width: 400px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.score {
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.sorting {
+    color: white;
+}

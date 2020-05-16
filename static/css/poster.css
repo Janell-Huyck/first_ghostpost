@@ -1,0 +1,33 @@
+body {
+    /* background-color: green; */
+    background: url('../img/house.png');
+    background-size: cover;
+}
+
+.post {
+    display:flex;
+    flex-direction: column;
+    background: url('../img/ghost.png');
+    background-color: white;
+    color: orangered;
+    height: 400px;
+    width: 400px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.score {
+    justify-self: right;
+    text-align: right;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

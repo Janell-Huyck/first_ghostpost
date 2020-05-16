@@ -2,18 +2,23 @@
 <html>
     <head>
         <title>Ghost Post</title>
-        {% comment %} <link rel="stylesheet" href="{% static '' %}"> inside quotes put myapp.css{% endcomment %}
-
+        <link rel="stylesheet" type="text/css" href="{% static 'css/poster.css'%}">
     </head>
     <body>
-        <header>
-            <h1>Ghost Post</ht>
-            {% include 'which_post_buttons.html' %}
-        </header>
+    <header>
+        <h1>Ghost Post</ht>
+        {% include 'which_post_buttons.html' %}     
+    </header>
+        <main>
+        <br>
+         <form method = "post">
+            {%csrf_token%}
+            {{form}}
+            <input type="submit" value="Submit">
+        </form>   
             {%block content%}
             {%endblock%}
-        <footer>
-            <p>Copywright 2020 by Janell Huyck
-        </footer>
+        </main>
+
     </body>
 </html>
