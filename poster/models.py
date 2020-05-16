@@ -11,15 +11,13 @@ class GhostPost(models.Model):
     down_votes = models.IntegerField(default=0, editable=False)
     submission_time = models.DateTimeField(
         auto_now_add=True, editable=False, null=False, blank=False)
-    magic_string = models.CharField(max_length=6, editable=False)
     score = models.IntegerField(editable=False, default=0)
 
     def __str__(self):
         return self.title
 
-    def save(self):
-        if not self.id:
-            self.magic_string = "aaaaaa"
+    def save(self, *args, **kwargs):
+
         self.score = self.up_votes - self.down_votes
         super(GhostPost, self).save()
 

@@ -148,7 +148,6 @@ def new_post_view(request):
                 text=data['text'],
                 up_votes=0,
                 down_votes=0,
-                magic_string="aaaaaa"
             )
         return HttpResponseRedirect(reverse('home'))
     form = GhostPostForm()

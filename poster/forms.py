@@ -25,5 +25,4 @@ class GhostPost(models.Model):
     up_votes = models.IntegerField(default=0)
     down_votes = models.IntegerField(default=0)
     submission_time = models.DateTimeField(default=timezone.now)
-    magic_string = models.CharField(max_length=6)
 """
