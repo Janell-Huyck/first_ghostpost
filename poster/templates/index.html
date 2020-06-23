@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+
+{%block content%}
+<div class="container">
+        <ul>
+            {% for post in posts %}
+                {% include 'post_blob.html' with post=post%}
+            {% endfor %}
+        </ul>
+</div>
+<footer>
+    <p>Copywright 2020 by Janell Huyck
+    Images by <a href="https://pixabay.com/users/Clker-Free-Vector-Images-3736/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=31320">Clker-Free-Vector-Images</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=31320">Pixabay</a>
+</footer>
+{%endblock%}

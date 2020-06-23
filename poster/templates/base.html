@@ -1,0 +1,24 @@
+{% load static %}
+<html>
+    <head>
+        <title>Ghost Post</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/poster.css'%}">
+    </head>
+    <body>
+    <header>
+        <h1>Ghost Post</ht>
+        {% include 'which_post_buttons.html' %}     
+    </header>
+        <main>
+        <br>
+         <form method = "post">
+            {%csrf_token%}
+            {{form}}
+            <input type="submit" value="Submit">
+        </form>   
+            {%block content%}
+            {%endblock%}
+        </main>
+
+    </body>
+</html>

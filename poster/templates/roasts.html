@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+
+
+{%block content%}
+
+<div class="container">
+        <ul>
+            {% for post in posts %}
+                {% include 'roast_blob.html' with post=post%}
+            {% endfor %}
+        </ul>
+</div>
+{%endblock%}

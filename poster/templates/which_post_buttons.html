@@ -1,0 +1,23 @@
+<div class="topnav">
+
+    {% comment %} All Posts {% endcomment %}
+    <button>
+        <a href="{% url "home" %}" class="{% if request.resolver_match.url_name == "home" %}active{% endif %}">All Posts</a>
+    </button>
+
+    
+    {% comment %} Boasts {% endcomment %}
+        <button>
+            <a href="{% url "boasts" %}" class="{% if request.resolver_match.url_name == "boasts" %}active{% endif %}">Boasts</a>
+        </button>
+
+    {% comment %} Roasts {% endcomment %}
+        <button>
+            <a href="{% url "roasts" %}" class="{% if request.resolver_match.url_name == "roasts" %}active{% endif %}">Roasts</a>
+        </button>
+    
+    {% comment %} New Post Form {% endcomment %}
+        <button>
+            <a href="{% url "new_post" %}" class="{% if request.resolver_match.url_name == "new_post" %}active{% endif %}">New Post</a>
+        </button>
+</div>

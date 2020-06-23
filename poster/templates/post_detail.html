@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %} 
+    <h2>{{post.title}}</h2>
+    <p>{{post.text}}</h2>
+    <p> Total likes: {{post.up_votes}}</p>
+    <p> Total dislikes: {{post.down_votes}} </p>
+    <button><a href="{% url 'detail_like_post' pk=post.pk %}">Up-Vote This</a></button>
+    <button><a href="{% url 'detail_dislike_post' pk=post.pk %}">Down-Vote This</a></button>
+
+{% endblock %}

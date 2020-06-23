@@ -1,0 +1,12 @@
+{% load static%}
+<div class="post">
+<a href="{% url 'post_detail' pk=post.pk %}" <h3>{{post.title}}</h3> </a>
+<p>{{post.text}}</p>
+<p> Posted at: {{post.submission_time}} </p>
+
+</div>
+<div class = "score">
+    <button><a href="{% url 'roasts_like_post' pk=post.pk %}">Up-Vote This</a></button>
+    <button><a href="{% url 'roasts_dislike_post' pk=post.pk %}">Down-Vote This</a></button>
+    <div>Post score = {{post.score}}</div>
+</div>
